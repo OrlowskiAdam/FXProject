@@ -12,6 +12,10 @@
     -fx-text-fill: #ffffff;
 }
 
+.divider {
+    -fx-background-color: white;
+}
+
 .button {
     -fx-background-color: #d9168b;
     -fx-background-radius: 5px;
