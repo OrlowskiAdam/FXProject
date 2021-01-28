@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<?import javafx.collections.FXCollections?>
+<?import com.example.projectfx.model.Mail?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0"
+            prefWidth="1280.0" styleClass="parent" stylesheets="@../css/styles.css"
+            xmlns="http://javafx.com/javafx/8.0.171"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.projectfx.controller.MainController">
+    <children>
+        <AnchorPane layoutY="100.0" prefHeight="620.0" prefWidth="300.0" styleClass="sidebar">
+            <children>
+                <Button onMouseClicked="#handleComposeButton" layoutX="50.0" layoutY="22.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0"
+                        text="Compose">
+                    <font>
+                        <Font name="Calibri Light" size="18.0"/>
+                    </font>
+                    <effect>
+                        <DropShadow/>
+                    </effect>
+                </Button>
+                <HBox layoutX="14.0" layoutY="68.0" prefHeight="30.0" prefWidth="200.0" styleClass="menu" onMouseClicked="#handleInboxMenu">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/right-arrow-icon.png"/>
+                            </image>
+                        </ImageView>
+                        <Label prefHeight="30.0" prefWidth="171.0" text="Inbox">
+                            <font>
+                                <Font name="Calibri Light" size="20.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox layoutX="14.0" layoutY="118.0" prefHeight="30.0" prefWidth="200.0" styleClass="menu" onMouseClicked="#handleSentMenu">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/right-arrow-icon.png"/>
+                            </image>
+                        </ImageView>
+                        <Label prefHeight="30.0" prefWidth="171.0" text="Sent">
+                            <font>
+                                <Font name="Calibri Light" size="20.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox layoutX="14.0" layoutY="165.0" prefHeight="30.0" prefWidth="200.0" styleClass="menu" onMouseClicked="#handleBinMenu">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/right-arrow-icon.png"/>
+                            </image>
+                        </ImageView>
+                        <Label prefHeight="30.0" prefWidth="171.0" text="Archive">
+                            <font>
+                                <Font name="Calibri Light" size="20.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+                <HBox layoutX="14.0" layoutY="576.0" prefHeight="30.0" prefWidth="200.0" styleClass="menu"
+                      onMouseClicked="#handleLogout">
+                    <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../img/right-arrow-icon.png"/>
+                            </image>
+                        </ImageView>
+                        <Label prefHeight="30.0" prefWidth="171.0" text="Log out">
+                            <font>
+                                <Font name="Calibri Light" size="20.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+        </AnchorPane>
+        <ImageView fx:id="avatar" fitHeight="75.0" fitWidth="75.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <effect>
+                <DropShadow/>
+            </effect>
+        </ImageView>
+        <Label fx:id="mail" layoutX="108.0" layoutY="14.0" prefHeight="17.0" prefWidth="200.0">
+            <font>
+                <Font name="Calibri Light" size="14.0"/>
+            </font>
+        </Label>
+        <Label fx:id="userData" layoutX="108.0" layoutY="39.0" prefHeight="26.0" prefWidth="200.0">
+            <font>
+                <Font name="Calibri Light" size="22.0"/>
+            </font>
+        </Label>
+        <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="108.0" layoutY="69.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@../img/gear-icon.png"/>
+            </image>
+        </ImageView>
+        <TableView fx:id="mails" layoutX="307.0" layoutY="139.0" prefHeight="573.0" prefWidth="965.0">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+            <columns>
+                <TableColumn minWidth="55.0" maxWidth="55.0" fx:id="senderAvatar"/>
+                <TableColumn prefWidth="75.0" text="Email" fx:id="senderEmail"/>
+                <TableColumn prefWidth="75.0" text="Subject" fx:id="mailSubject"/>
+                <TableColumn prefWidth="75.0" text="Text" fx:id="mailText"/>
+                <TableColumn prefWidth="75.0" text="Action" fx:id="action"/>
+            </columns>
+        </TableView>
+        <TextField fx:id="searchField" layoutX="308.0" layoutY="100.0" prefWidth="177.0" promptText="Search" styleClass="textfield"/>
+        <Button layoutX="498.0" layoutY="100.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0"
+                text="Search" onMouseClicked="#handleSearchButton">
+            <effect>
+                <DropShadow/>
+            </effect>
+        </Button>
+        <Button layoutX="580.0" layoutY="100.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="75.0"
+                text="Reset" onMouseClicked="#handleResetButton">
+            <effect>
+                <DropShadow/>
+            </effect>
+        </Button>
+    </children>
+</AnchorPane>

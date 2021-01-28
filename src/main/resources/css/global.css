@@ -1,0 +1,43 @@
+#header-text {
+    -fx-font-size: 25px;
+    -fx-text-alignment: center;
+}
+
+#userAvatar {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1), 10, 0, 0, 0);
+    -fx-padding: 10 10 10 10;
+    -fx-show-tick-marks: true;
+    -fx-tick-mark-visible: true;
+    -fx-background-radius: 5;
+    -fx-arc-height: 30;
+    -fx-arc-width: 30;
+}
+
+.avatar {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1), 10, 0, 0, 0);
+    -fx-padding: 10 10 10 10;
+    -fx-show-tick-marks: true;
+    -fx-tick-mark-visible: true;
+    -fx-background-radius: 5;
+    -fx-arc-height: 30;
+    -fx-arc-width: 30;
+}
+
+Button {
+    -fx-font-size: 0;
+    -fx-border-radius: 10;
+}
+
+.mail-pane > *:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 1), 10, 0, 0, 0);
+    -fx-padding: 10 10 10 10;
+    -fx-cursor: hand;
+}
+
+.bold-subject {
+    -fx-font-weight: bolder;
+}
+
+/*Button:hover {*/
+/*    -fx-border-color: #F0E271;*/
+/*}*/
