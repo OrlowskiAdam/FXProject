@@ -16,6 +16,8 @@ public class Mail {
     public Mail(String text, String subject, User addressee, User sender) {
         this.text = text;
         this.subject = subject;
+        this.addresseeMail = addressee.getEmail();
+        this.addresseeTempId = addressee.getId();
         this.addressee = addressee;
         this.sender = sender;
         this.receiveDateTime = LocalDateTime.now();
@@ -32,6 +34,8 @@ public class Mail {
     private LocalDateTime receiveDateTime;
     private boolean isRead = false;
     private boolean isDeleted = false;
+    private Long addresseeTempId;
+    private String addresseeMail;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "addressee_id")

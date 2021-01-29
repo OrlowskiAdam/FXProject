@@ -107,3 +107,23 @@
 .web-view {
     -fx-background-color: rgba(0, 0, 0, 0.6);
 }
+
+.choice-box {
+    -fx-background-color: rgba(45, 45, 43, 0.6);
+}
+
+.choice-box .context-menu {
+    -fx-background-color: rgba(45, 45, 43, 0.6);
+}
+
+.choice-box .menu-item:focused {
+    -fx-background-color: orange;
+}
+
+.choice-box .menu-item > .label {
+    -fx-text-fill: white;
+}
+
+.choice-box .menu-item:focused > .label {
+    -fx-text-fill: black;
+}

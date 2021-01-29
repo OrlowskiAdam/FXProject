@@ -46,7 +46,8 @@ public class MailServiceImpl implements MailService {
         for (Mail mail : newMailList) {
             if (mail.getId().equals(id)) {
                 newMailList.remove(mail);
-                new Thread(() -> mailRepository.delete(mail)).start();
+                mail.setAddressee(null);
+                new Thread(() -> mailRepository.save(mail)).start();
                 break;
             }
         }

@@ -22,14 +22,11 @@
                 <Font name="Calibri Light" size="20.0"/>
             </font>
         </Label>
-        <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="15.0" layoutY="49.0" pickOnBounds="true"
+        <ImageView fx:id="avatar" fitHeight="60.0" fitWidth="60.0" layoutX="15.0" layoutY="49.0" pickOnBounds="true"
                    preserveRatio="true">
             <effect>
                 <DropShadow/>
             </effect>
-            <image>
-                <Image url="@../img/bot.png"/>
-            </image>
         </ImageView>
         <Label fx:id="senderEmail" layoutX="88.0" layoutY="92.0" prefHeight="17.0" prefWidth="487.0" text="mail.bot@poczta.pl"/>
         <Label fx:id="senderData" layoutX="88.0" layoutY="49.0" prefHeight="30.0" prefWidth="487.0" text="Adam Orłowski">

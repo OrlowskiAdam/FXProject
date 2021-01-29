@@ -76,7 +76,7 @@ public class RegisterController implements Initializable {
                         accountType);
                 User registeredUser = userRepository.save(user);
                 User bot = userRepository.findById(1L).orElseThrow(() -> new NotFoundException("Bot account not set!"));
-                Mail mail = new Mail("General Kenobi...", "Hello there!", registeredUser, bot);
+                Mail mail = new Mail("Hello world!", "Hello world!", registeredUser, bot);
                 mailRepository.save(mail);
                 AppContext.loggedUser = registeredUser;
                 sceneService.activate("main");
@@ -112,6 +112,10 @@ public class RegisterController implements Initializable {
             requiredInputs.add("Repeated password is different");
         }
         if (hasEmailDoubleAt()) requiredInputs.add("Email has illegal characters");
+        Optional<User> userOptional = userRepository.findByLogin(nameField.getText());
+        if (userOptional.isPresent()) {
+            requiredInputs.add("This login is already taken!");
+        }
     }
 
     private boolean hasEmailDoubleAt() {

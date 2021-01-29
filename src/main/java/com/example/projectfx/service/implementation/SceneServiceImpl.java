@@ -27,6 +27,7 @@ public class SceneServiceImpl implements SceneService {
     @Value("classpath:/view/main.fxml") private Resource mainView;
     @Value("classpath:/view/mail.fxml") private Resource mailView;
     @Value("classpath:/view/compositor.fxml") private Resource compositorView;
+    @Value("classpath:/view/settings.fxml") private Resource settingsView;
 
     private final HashMap<String, Resource> resourceMap = new HashMap<>();
 
@@ -38,6 +39,7 @@ public class SceneServiceImpl implements SceneService {
         addScene("main", mainView);
         addScene("mail", mailView);
         addScene("compositor", compositorView);
+        addScene("settings", settingsView);
     }
 
     @Override
